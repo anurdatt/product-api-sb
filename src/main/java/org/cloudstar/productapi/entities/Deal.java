@@ -1,4 +1,4 @@
-package org.anuran.myshop.entities;
+package org.cloudstar.productapi.entities;
 
 import java.math.BigDecimal;
 

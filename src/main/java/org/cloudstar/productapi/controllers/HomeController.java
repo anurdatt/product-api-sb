@@ -1,16 +1,16 @@
-package org.anuran.myshop.controllers;
+package org.cloudstar.productapi.controllers;
 
 import java.util.List;
 
-import org.anuran.myshop.entities.Deal;
-import org.anuran.myshop.entities.ProductCategory;
-import org.anuran.myshop.services.HomeService;
+import org.cloudstar.productapi.entities.Deal;
+import org.cloudstar.productapi.entities.ProductCategory;
+import org.cloudstar.productapi.services.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/home")
+@RequestMapping("/v1/api/home")
 public class HomeController {
 
 	@Autowired

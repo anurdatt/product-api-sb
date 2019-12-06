@@ -1,4 +1,4 @@
-package org.anuran.myshop.filters;
+package org.cloudstar.productapi.filters;
 
 import java.io.IOException;
 

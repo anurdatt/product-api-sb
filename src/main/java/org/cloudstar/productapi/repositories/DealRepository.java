@@ -1,6 +1,6 @@
-package org.anuran.myshop.repositories;
+package org.cloudstar.productapi.repositories;
 
-import org.anuran.myshop.entities.Deal;
+import org.cloudstar.productapi.entities.Deal;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DealRepository extends JpaRepository<Deal, Long> {

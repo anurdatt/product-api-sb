@@ -1,13 +1,13 @@
-package org.anuran.myshop;
+package org.cloudstar.productapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MyShopApplication {
+public class ProductAPIApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MyShopApplication.class, args);
+		SpringApplication.run(ProductAPIApplication.class, args);
 	}
 	
 	
