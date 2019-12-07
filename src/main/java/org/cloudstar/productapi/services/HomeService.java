@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.cloudstar.productapi.entities.Deal;
-import org.cloudstar.productapi.entities.ProductCategory;
-import org.cloudstar.productapi.repositories.DealRepository;
-import org.cloudstar.productapi.repositories.ProductCategoryRepository;
+//import org.cloudstar.productapi.entities.Deal;
+import org.cloudstar.productapi.entities.ProductCatalog;
+//import org.cloudstar.productapi.repositories.DealRepository;
+import org.cloudstar.productapi.repositories.ProductCatalogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +16,16 @@ import org.springframework.stereotype.Service;
 public class HomeService {
 	
 	@Autowired
-	private ProductCategoryRepository categoryRepo;
+	private ProductCatalogRepository catalogRepo;
 	
-	@Autowired
-	private DealRepository dealRepo;
+	/*@Autowired
+	private DealRepository dealRepo;*/
 	
-	public List<ProductCategory> getProductCategories() {
-		return categoryRepo.findAll();	
+	public List<ProductCatalog> getProductCatalog() {
+		return catalogRepo.findAll();	
 	}
 	
-	public List<Deal> getProductDeals() {
+	/*public List<Deal> getProductDeals() {
 		return dealRepo.findAll();	
-	}
+	}*/
 }
