@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class HomeService {
+public class ProductService {
 	
 	@Autowired
 	private ProductCatalogRepository catalogRepo;
