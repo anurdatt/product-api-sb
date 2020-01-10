@@ -2,6 +2,9 @@ package org.cloudstar.productapi.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -9,6 +12,8 @@ import javax.persistence.Table;
 public class ProductPricing {
 	
 	@Column(name="PRICE_ID")
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer priceId;
 	
 	@Column(name="ITEM_NUMBER")
