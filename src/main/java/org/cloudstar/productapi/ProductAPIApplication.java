@@ -25,7 +25,15 @@ public class ProductAPIApplication implements CommandLineRunner{
 		// TODO Auto-generated method stub
 		
 		List<Map<String, Object>> a = jdbcTemplate.queryForList("show tables");
-		a.forEach(System.out::println);
+		a.forEach( i -> {
+			for (Map.Entry<String,Object> entry : i.entrySet()) {
+				System.out.println("Key = " + entry.getKey() + 
+                        ", Value = " + entry.getValue());
+				String tname = (String) entry.getValue();
+				List<Map<String, Object>> b = jdbcTemplate.queryForList("desc " + tname);
+				b.forEach(System.out::println);
+			}
+		});
 	}
 	
 }
