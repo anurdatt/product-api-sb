@@ -23,7 +23,7 @@ public class ProductStyle {
 	private String description;
 	
 	@Column(name="CATALOGUE_CATEGORY")
-	private String productCatalogId;
+	private Integer productCatalogId;
 	
 	@Column(name="BRAND")
 	private String brand;
@@ -52,11 +52,11 @@ public class ProductStyle {
 		this.description = description;
 	}
 
-	public String getProductCatalogId() {
+	public Integer getProductCatalogId() {
 		return productCatalogId;
 	}
 
-	public void setProductCatalogId(String productCatalogId) {
+	public void setProductCatalogId(Integer productCatalogId) {
 		this.productCatalogId = productCatalogId;
 	}
 

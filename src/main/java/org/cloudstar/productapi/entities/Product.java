@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,13 +28,13 @@ public class Product {
 	private String description;
 	
 	@Column(name="CATALOGUE_CATEGORY")
-	private String productCatalogId;
+	private Integer productCatalogId;
 	
 	@Column(name="SKU_UNIT_OF_MEASURE")
 	private String skuUnitOfMeasure;
 	
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="STYLE_ITEM")
+	@ManyToOne (fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="STYLE_ITEM", referencedColumnName="ITEM_NUMBER")
 	private ProductStyle productStyle;
 	
 	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
@@ -100,11 +101,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getProductCatalogId() {
+	public Integer getProductCatalogId() {
 		return productCatalogId;
 	}
 
-	public void setProductCatalogId(String productCatalogId) {
+	public void setProductCatalogId(Integer productCatalogId) {
 		this.productCatalogId = productCatalogId;
 	}
 
