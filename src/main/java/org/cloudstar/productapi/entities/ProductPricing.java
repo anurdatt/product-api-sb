@@ -20,7 +20,7 @@ public class ProductPricing {
 	
 	@OneToOne
 	@JoinColumn(name="ITEM_NUMBER")
-	private Product product;
+	private Integer productId;
 	
 //	@OneToOne (mappedBy="productPricing")
 //	private Product product;
@@ -45,12 +45,12 @@ public class ProductPricing {
 		this.priceId = priceId;
 	}
 
-	public Product getProduct() {
-		return product;
+	public Integer getProductId() {
+		return productId;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProductId(Integer productId) {
+		this.productId = productId;
 	}
 
 	public String getListPrice() {
@@ -94,7 +94,7 @@ public class ProductPricing {
 		result = prime * result + ((listPrice == null) ? 0 : listPrice.hashCode());
 		result = prime * result + ((priceEffectiveDate == null) ? 0 : priceEffectiveDate.hashCode());
 		result = prime * result + ((priceId == null) ? 0 : priceId.hashCode());
-		result = prime * result + ((product == null) ? 0 : product.hashCode());
+		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
 		return result;
 	}
 
@@ -132,13 +132,13 @@ public class ProductPricing {
 				return false;
 		} else if (!priceId.equals(other.priceId))
 			return false;
-		if (product == null) {
-			if (other.product != null)
+		if (productId == null) {
+			if (other.productId != null)
 				return false;
-		} else if (!product.equals(other.product))
+		} else if (!productId.equals(other.productId))
 			return false;
 		return true;
 	}
 
-
+	
 }
