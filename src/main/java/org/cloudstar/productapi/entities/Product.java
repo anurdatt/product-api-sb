@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.assertj.core.util.CanIgnoreReturnValue;
+
 @Entity
 @Table(name="XXIBM_PRODUCT_SKU")
 public class Product {
@@ -37,8 +39,7 @@ public class Product {
 	@JoinColumn(name="STYLE_ITEM", referencedColumnName="ITEM_NUMBER")
 	private ProductStyle productStyle;
 	
-	@OneToOne //(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="ITEM_NUMBER")
+	@OneToOne (/*fetch=FetchType.LAZY,*/cascade=CascadeType.ALL, mappedBy="product")
 	private ProductPricing productPricing;
 	
 	@Column(name="SKU_ATTRIBUTE1")

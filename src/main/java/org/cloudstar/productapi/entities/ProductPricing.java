@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +18,9 @@ public class ProductPricing {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer priceId;
 	
-	@Column(name="ITEM_NUMBER")
-	private Integer productId;
+	@OneToOne
+	@JoinColumn(name="ITEM_NUMBER")
+	private Product product;
 	
 	@Column(name="LIST_PRICE")
 	private String listPrice;
@@ -39,12 +42,12 @@ public class ProductPricing {
 		this.priceId = priceId;
 	}
 
-	public Integer getProductId() {
-		return productId;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public String getListPrice() {
@@ -88,7 +91,7 @@ public class ProductPricing {
 		result = prime * result + ((listPrice == null) ? 0 : listPrice.hashCode());
 		result = prime * result + ((priceEffectiveDate == null) ? 0 : priceEffectiveDate.hashCode());
 		result = prime * result + ((priceId == null) ? 0 : priceId.hashCode());
-		result = prime * result + ((productId == null) ? 0 : productId.hashCode());
+		result = prime * result + ((product == null) ? 0 : product.hashCode());
 		return result;
 	}
 
@@ -126,13 +129,13 @@ public class ProductPricing {
 				return false;
 		} else if (!priceId.equals(other.priceId))
 			return false;
-		if (productId == null) {
-			if (other.productId != null)
+		if (product == null) {
+			if (other.product != null)
 				return false;
-		} else if (!productId.equals(other.productId))
+		} else if (!product.equals(other.product))
 			return false;
 		return true;
 	}
-	
-	
+
+
 }
