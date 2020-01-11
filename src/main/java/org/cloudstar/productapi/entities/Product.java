@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -37,8 +38,11 @@ public class Product {
 	@JoinColumn(name="STYLE_ITEM", referencedColumnName="ITEM_NUMBER")
 	private ProductStyle productStyle;
 	
-	@OneToOne (/*fetch=FetchType.LAZY,*/cascade=CascadeType.ALL/*, mappedBy="product"*/)
-	@JoinColumn(name="ITEM_NUMBER")
+	//@OneToOne (/*fetch=FetchType.LAZY,*/cascade=CascadeType.ALL, mappedBy="product")
+	//private ProductPricing productPricing;
+	
+	@OneToOne
+	@JoinTable(name="XXIBM_PRODUCT_PRICING",joinColumns=@JoinColumn(name = "ITEM_NUMBER"))
 	private ProductPricing productPricing;
 	
 	@Column(name="SKU_ATTRIBUTE1")
