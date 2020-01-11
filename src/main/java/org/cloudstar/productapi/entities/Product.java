@@ -1,5 +1,7 @@
 package org.cloudstar.productapi.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +17,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="XXIBM_PRODUCT_SKU")
-public class Product {
+public class Product implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6321449269408432217L;
 
 	@Column(name="ITEM_NUMBER")
 	@Id
