@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="XXIBM_PRODUCT_SKU")
 public class Product implements Serializable{
@@ -47,6 +49,7 @@ public class Product implements Serializable{
 	
 	@OneToOne (/*fetch=FetchType.LAZY,*/cascade=CascadeType.ALL, mappedBy="product")
 	//@JoinColumn(name="ITEM_NUMBER")
+	@JsonBackReference
 	private ProductPricing productPricing;
 	
 //	@OneToOne
