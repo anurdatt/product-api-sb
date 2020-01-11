@@ -18,8 +18,9 @@ public class ProductPricing {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer priceId;
 	
-	@OneToOne
-	@JoinColumn(name="ITEM_NUMBER")
+	//@OneToOne
+	//@JoinColumn(name="ITEM_NUMBER")
+	@Column(name="ITEM_NUMBER")
 	private Integer productId;
 	
 //	@OneToOne (mappedBy="productPricing")
