@@ -38,12 +38,12 @@ public class Product {
 	@JoinColumn(name="STYLE_ITEM", referencedColumnName="ITEM_NUMBER")
 	private ProductStyle productStyle;
 	
-	//@OneToOne (/*fetch=FetchType.LAZY,*/cascade=CascadeType.ALL, mappedBy="product")
-	//private ProductPricing productPricing;
-	
-	@OneToOne
-	@JoinTable(name="XXIBM_PRODUCT_PRICING",joinColumns=@JoinColumn(name = "ITEM_NUMBER"))
+	@OneToOne (fetch=FetchType.LAZY,cascade=CascadeType.ALL, mappedBy="product")
 	private ProductPricing productPricing;
+	
+//	@OneToOne
+//	@JoinTable(name="XXIBM_PRODUCT_PRICING",joinColumns=@JoinColumn(name = "ITEM_NUMBER"))
+//	private ProductPricing productPricing;
 	
 	@Column(name="SKU_ATTRIBUTE1")
 	private String skuAttribute1;
