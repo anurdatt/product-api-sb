@@ -234,7 +234,7 @@ public class Product {
 		this.skuAttributeValue6 = skuAttributeValue6;
 	}
 
-	@Override
+	/*@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -365,7 +365,7 @@ public class Product {
 		} else if (!skuUnitOfMeasure.equals(other.skuUnitOfMeasure))
 			return false;
 		return true;
-	}
+	}*/
 	
 	
 }

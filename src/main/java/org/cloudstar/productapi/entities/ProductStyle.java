@@ -68,7 +68,7 @@ public class ProductStyle {
 		this.brand = brand;
 	}
 
-	@Override
+	/*@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -115,7 +115,7 @@ public class ProductStyle {
 		} else if (!styleName.equals(other.styleName))
 			return false;
 		return true;
-	}
+	}*/
 	
 	
 }

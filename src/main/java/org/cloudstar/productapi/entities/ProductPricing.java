@@ -85,7 +85,7 @@ public class ProductPricing {
 		this.priceEffectiveDate = priceEffectiveDate;
 	}
 
-	@Override
+	/*@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -138,7 +138,7 @@ public class ProductPricing {
 		} else if (!product.equals(other.product))
 			return false;
 		return true;
-	}
+	}*/
 
 
 }
