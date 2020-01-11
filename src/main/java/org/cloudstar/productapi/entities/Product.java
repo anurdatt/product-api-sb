@@ -12,8 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.assertj.core.util.CanIgnoreReturnValue;
-
 @Entity
 @Table(name="XXIBM_PRODUCT_SKU")
 public class Product {
