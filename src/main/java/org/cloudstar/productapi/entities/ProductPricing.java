@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -29,7 +30,7 @@ public class ProductPricing implements Serializable{
 	
 	@OneToOne
 	@JoinColumn(name="ITEM_NUMBER")
-	@JsonManagedReference
+	@JsonBackReference
 	private Product product;
 	
 //	@OneToOne (mappedBy="productPricing")
