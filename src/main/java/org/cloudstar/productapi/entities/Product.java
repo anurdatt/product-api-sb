@@ -37,7 +37,7 @@ public class Product {
 	@JoinColumn(name="STYLE_ITEM", referencedColumnName="ITEM_NUMBER")
 	private ProductStyle productStyle;
 	
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToOne //(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="ITEM_NUMBER")
 	private ProductPricing productPricing;
 	
