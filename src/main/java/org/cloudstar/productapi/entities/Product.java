@@ -33,7 +33,7 @@ public class Product {
 	@Column(name="SKU_UNIT_OF_MEASURE")
 	private String skuUnitOfMeasure;
 	
-	@ManyToOne (fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@ManyToOne //(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="STYLE_ITEM", referencedColumnName="ITEM_NUMBER")
 	private ProductStyle productStyle;
 	
