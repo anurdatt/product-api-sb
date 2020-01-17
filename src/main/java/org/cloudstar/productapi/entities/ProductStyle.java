@@ -1,7 +1,5 @@
 package org.cloudstar.productapi.entities;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,12 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="XXIBM_PRODUCT_STYLE")
-public class ProductStyle implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2616895138130645056L;
+public class ProductStyle {
 
 	@Column(name="ITEM_NUMBER")
 	@Id
@@ -75,7 +68,7 @@ public class ProductStyle implements Serializable{
 		this.brand = brand;
 	}
 
-	/*@Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -122,7 +115,7 @@ public class ProductStyle implements Serializable{
 		} else if (!styleName.equals(other.styleName))
 			return false;
 		return true;
-	}*/
+	}
 	
 	
 }

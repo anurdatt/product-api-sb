@@ -1,7 +1,5 @@
 package org.cloudstar.productapi.entities;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,12 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="XXIBM_PRODUCT_CATALOGUE")
-public class ProductCatalog implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1744639105829666617L;
-
+public class ProductCatalog {
 	@Id
 	@Column(name="COMMODITY")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -107,7 +100,7 @@ public class ProductCatalog implements Serializable{
 		this.segmentName = segmentName;
 	}
 
-/*	@Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -173,7 +166,7 @@ public class ProductCatalog implements Serializable{
 			return false;
 		return true;
 	}
-	*/
+	
 	
 	
 }

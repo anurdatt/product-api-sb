@@ -1,7 +1,5 @@
 package org.cloudstar.productapi.entities;
 
-import java.io.Serializable;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,22 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.assertj.core.util.CanIgnoreReturnValue;
 
 @Entity
 @Table(name="XXIBM_PRODUCT_SKU")
-public class Product implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6321449269408432217L;
+public class Product {
 
 	@Column(name="ITEM_NUMBER")
 	@Id
@@ -49,13 +40,7 @@ public class Product implements Serializable{
 	private ProductStyle productStyle;
 	
 	@OneToOne (/*fetch=FetchType.LAZY,*/cascade=CascadeType.ALL, mappedBy="product")
-	//@JoinColumn(name="ITEM_NUMBER")
-	@JsonManagedReference
 	private ProductPricing productPricing;
-	
-//	@OneToOne
-//	@JoinTable(name="XXIBM_PRODUCT_PRICING",joinColumns=@JoinColumn(name = "ITEM_NUMBER"))
-//	private ProductPricing productPricing;
 	
 	@Column(name="SKU_ATTRIBUTE1")
 	private String skuAttribute1;
@@ -245,7 +230,7 @@ public class Product implements Serializable{
 		this.skuAttributeValue6 = skuAttributeValue6;
 	}
 
-	/*@Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -376,7 +361,7 @@ public class Product implements Serializable{
 		} else if (!skuUnitOfMeasure.equals(other.skuUnitOfMeasure))
 			return false;
 		return true;
-	}*/
+	}
 	
 	
 }
