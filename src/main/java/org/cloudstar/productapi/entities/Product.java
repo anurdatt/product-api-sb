@@ -1,5 +1,7 @@
 package org.cloudstar.productapi.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,15 +10,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.assertj.core.util.CanIgnoreReturnValue;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="XXIBM_PRODUCT_SKU")
-public class Product {
+public class Product implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6321449269408432217L;
 
 	@Column(name="ITEM_NUMBER")
 	@Id
@@ -40,7 +49,13 @@ public class Product {
 	private ProductStyle productStyle;
 	
 	@OneToOne (/*fetch=FetchType.LAZY,*/cascade=CascadeType.ALL, mappedBy="product")
+	//@JoinColumn(name="ITEM_NUMBER")
+	@JsonManagedReference
 	private ProductPricing productPricing;
+	
+//	@OneToOne
+//	@JoinTable(name="XXIBM_PRODUCT_PRICING",joinColumns=@JoinColumn(name = "ITEM_NUMBER"))
+//	private ProductPricing productPricing;
 	
 	@Column(name="SKU_ATTRIBUTE1")
 	private String skuAttribute1;

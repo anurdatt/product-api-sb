@@ -1,5 +1,7 @@
 package org.cloudstar.productapi.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +11,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="XXIBM_PRODUCT_PRICING")
-public class ProductPricing {
+public class ProductPricing implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1563493507347833477L;
+
 	@Column(name="PRICE_ID")
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -20,7 +30,11 @@ public class ProductPricing {
 	
 	@OneToOne
 	@JoinColumn(name="ITEM_NUMBER")
+	@JsonBackReference
 	private Product product;
+	
+//	@OneToOne (mappedBy="productPricing")
+//	private Product product;
 	
 	@Column(name="LIST_PRICE")
 	private String listPrice;
