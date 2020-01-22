@@ -34,7 +34,7 @@ public class ProductController {
 	@RequestMapping("/Products/{pc_id}")
 	public List<Product> getProducts(@PathVariable("pc_id") Integer pcId) {
 		System.out.println("in getProducts with pcId=" + pcId);
-		List<Product> products = product.getAllProducts();  //TODO - To change
+		List<Product> products = product.getProductByProductCatalogId(pcId);  //TODO - To change
 		return products;
 	}
 	

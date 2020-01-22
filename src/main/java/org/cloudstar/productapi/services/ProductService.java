@@ -34,6 +34,9 @@ public class ProductService {
 		return productRepo.findAll();	
 	}
 	
+	public List<Product> getProductByProductCatalogId(Integer pcId) {
+		return productRepo.findByProductCatalogId(pcId);	
+	}
 	
 	/*public List<Deal> getProductDeals() {
 		return dealRepo.findAll();	
