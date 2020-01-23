@@ -1,6 +1,9 @@
 package org.cloudstar.productapi.services;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -36,6 +39,30 @@ public class ProductService {
 	
 	public List<Product> getProductByProductCatalogId(Integer pcId) {
 		return productRepo.findByProductCatalogId(pcId);	
+	}
+	
+	public List<Product> searchProductsByText(String srchText) {
+		List<ProductCatalog> pcList = catalogRepo.findAll();
+		List<ProductCatalog> resultPcList = pcList.stream()
+				.filter(pc -> pc.getCommodityName().contains(srchText))
+				.collect(Collectors.toList());
+		
+		List<Product> retProdList;
+		
+		if (resultPcList.size() > 0) {
+			retProdList = new ArrayList<Product>();
+			
+			resultPcList.forEach(pc -> 
+			retProdList.addAll(productRepo.findByProductCatalogId(pc.getCommodityId())));
+		}
+		else {
+			List<Product> prodList = productRepo.findAll();
+			retProdList = prodList.stream()
+					.filter(prod -> prod.getItemName().contains(srchText) || prod.getDescription().contains(srchText))
+					.collect(Collectors.toList());
+		}
+		
+		return retProdList;
 	}
 	
 	/*public List<Deal> getProductDeals() {
