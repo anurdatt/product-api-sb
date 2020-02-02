@@ -38,8 +38,11 @@ public class Product implements Serializable{
 	@Column(name="LONG_DESCRIPTION")
 	private String description;
 	
-	@Column(name="CATALOGUE_CATEGORY")
-	private Integer productCatalogId;
+//	@Column(name="CATALOGUE_CATEGORY")
+//	private Integer productCatalogId;
+	@ManyToOne //(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="CATALOGUE_CATEGORY", referencedColumnName="COMMODITY")
+	private ProductCatalog productCatalog;
 	
 	@Column(name="SKU_UNIT_OF_MEASURE")
 	private String skuUnitOfMeasure;
@@ -117,12 +120,12 @@ public class Product implements Serializable{
 		this.description = description;
 	}
 
-	public Integer getProductCatalogId() {
-		return productCatalogId;
+	public ProductCatalog getProductCatalog() {
+		return productCatalog;
 	}
 
-	public void setProductCatalogId(Integer productCatalogId) {
-		this.productCatalogId = productCatalogId;
+	public void setProductCatalog(ProductCatalog productCatalog) {
+		this.productCatalog = productCatalog;
 	}
 
 	public String getSkuUnitOfMeasure() {
@@ -252,7 +255,7 @@ public class Product implements Serializable{
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
-		result = prime * result + ((productCatalogId == null) ? 0 : productCatalogId.hashCode());
+		result = prime * result + ((productCatalog == null) ? 0 : productCatalog.hashCode());
 		result = prime * result + ((productPricing == null) ? 0 : productPricing.hashCode());
 		result = prime * result + ((productStyle == null) ? 0 : productStyle.hashCode());
 		result = prime * result + ((skuAttribute1 == null) ? 0 : skuAttribute1.hashCode());
@@ -295,10 +298,10 @@ public class Product implements Serializable{
 				return false;
 		} else if (!itemName.equals(other.itemName))
 			return false;
-		if (productCatalogId == null) {
-			if (other.productCatalogId != null)
+		if (productCatalog == null) {
+			if (other.productCatalog != null)
 				return false;
-		} else if (!productCatalogId.equals(other.productCatalogId))
+		} else if (!productCatalog.equals(other.productCatalog))
 			return false;
 		if (productPricing == null) {
 			if (other.productPricing != null)
@@ -377,6 +380,7 @@ public class Product implements Serializable{
 			return false;
 		return true;
 	}
-	
+
+
 	
 }
