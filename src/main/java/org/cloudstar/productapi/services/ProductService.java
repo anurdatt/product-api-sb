@@ -37,8 +37,20 @@ public class ProductService {
 		return productRepo.findAll();	
 	}
 	
-	public List<Product> getProductByProductCatalogId(Integer pcId) {
+	public List<Product> getProductsByProductCatalogId(Integer pcId) {
 		return productRepo.findByProductCatalogId(pcId);	
+	}
+	
+	public List<Product> getProductsByClassId(Integer pcId) {
+		return productRepo.findByClassId(pcId);	
+	}
+	
+	public List<Product> getProductsByFamilyId(Integer pcId) {
+		return productRepo.findByFamilyId(pcId);	
+	}
+	
+	public List<Product> getProductsBySegmentId(Integer pcId) {
+		return productRepo.findBySegmentId(pcId);	
 	}
 	
 	public List<Product> searchProductsByText(String srchText) {
