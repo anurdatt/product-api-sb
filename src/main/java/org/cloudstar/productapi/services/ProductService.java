@@ -53,6 +53,10 @@ public class ProductService {
 		return productRepo.findBySegmentId(pcId);	
 	}
 	
+	public List<Product> getProductsByItemName(String name) {
+		return productRepo.findByItemName(name);	
+	}
+	
 	public List<Product> searchProductsByText(String srchText) {
 		List<ProductCatalog> pcList = catalogRepo.findAll();
 		List<ProductCatalog> resultPcList = pcList.stream()

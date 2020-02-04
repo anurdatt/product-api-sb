@@ -21,4 +21,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	
 	@Query("FROM Product p where p.productCatalog.segmentId = :pcId")
 	List<Product> findBySegmentId(@Param("pcId") Integer pcId);
+	
+	@Query("FROM Product p where p.itemName = :name")
+	List<Product> findByItemName(@Param("name") String name);
 }

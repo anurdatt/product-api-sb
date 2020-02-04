@@ -40,28 +40,35 @@ public class ProductController {
 	@RequestMapping("/Products/commodity/{pc_id}")
 	public List<Product> getProductsByProductCatalogId(@PathVariable("pc_id") Integer pcId) {
 		System.out.println("in getProductsByProductCatalogId with pcId=" + pcId);
-		List<Product> products = product.getProductsByProductCatalogId(pcId);  //TODO - To change
+		List<Product> products = product.getProductsByProductCatalogId(pcId);  
 		return products;
 	}
 	
 	@RequestMapping("/Products/class/{pc_id}")
 	public List<Product> getProductsByClassId(@PathVariable("pc_id") Integer pcId) {
 		System.out.println("in getProductsByClassId with pcId=" + pcId);
-		List<Product> products = product.getProductsByClassId(pcId);  //TODO - To change
+		List<Product> products = product.getProductsByClassId(pcId);  
 		return products;
 	}
 	
 	@RequestMapping("/Products/family/{pc_id}")
 	public List<Product> getProductsByFamilyId(@PathVariable("pc_id") Integer pcId) {
 		System.out.println("in getProductsByFamilyId with pcId=" + pcId);
-		List<Product> products = product.getProductsByFamilyId(pcId);  //TODO - To change
+		List<Product> products = product.getProductsByFamilyId(pcId);  
 		return products;
 	}
 	
 	@RequestMapping("/Products/segment/{pc_id}")
 	public List<Product> getProductsBySegmentId(@PathVariable("pc_id") Integer pcId) {
 		System.out.println("in getProductsBySegmentId with pcId=" + pcId);
-		List<Product> products = product.getProductsBySegmentId(pcId);  //TODO - To change
+		List<Product> products = product.getProductsBySegmentId(pcId);  
+		return products;
+	}
+	
+	@RequestMapping("/Products/name/{name}")
+	public List<Product> getProductsByItemName(@PathVariable("name") String name) {
+		System.out.println("in getProductsByItemName with name=" + name);
+		List<Product> products = product.getProductsByItemName(name); 
 		return products;
 	}
 	
