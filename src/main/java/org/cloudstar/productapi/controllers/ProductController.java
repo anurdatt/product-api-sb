@@ -74,7 +74,7 @@ public class ProductController {
 	
 	@RequestMapping(value="/SearchProductsByText", method=RequestMethod.POST)
 	public ResponseEntity<List<Product>> searchProductsByText(@RequestBody ProductSearchDTO searchDTO) {
-		List<Product> products = product.searchProductsByText(searchDTO.getSearchText());
+		List<Product> products = product.searchProductsByTextNew(searchDTO.getSearchText());
 		//return ResponseEntity.of(Optional.of(products)).status(HttpStatus.OK).build();
 		return ResponseEntity.ok(products);
 	}

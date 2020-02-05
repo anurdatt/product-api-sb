@@ -81,6 +81,27 @@ public class ProductService {
 		return retProdList;
 	}
 	
+	public List<Product> searchProductsByTextNew(String srchText) {
+
+		List<Product> prodList = productRepo.findAll();
+		List<Product> retProdList = prodList.stream()
+				.filter(prod -> {
+					ProductCatalog pc = prod.getProductCatalog();
+					String srchTextL = srchText.toLowerCase();
+					
+					return prod.getItemName().toLowerCase().contains(srchTextL) 
+					|| prod.getDescription().toLowerCase().contains(srchTextL)
+					|| pc.getCommodityName().toLowerCase().contains(srchTextL)
+					|| pc.getClassName().toLowerCase().contains(srchTextL)
+					|| pc.getFamilyName().toLowerCase().contains(srchTextL)
+					|| pc.getSegmentName().toLowerCase().contains(srchTextL);
+				})
+				.collect(Collectors.toList());
+
+		return retProdList;
+	}
+	
+	
 	/*public List<Deal> getProductDeals() {
 		return dealRepo.findAll();	
 	}*/
