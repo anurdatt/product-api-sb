@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="XXIBM_PRODUCT_CATALOGUE")
-@JsonIgnoreProperties
+@JsonIgnoreType
 public class ProductCatalog implements Serializable{
 	/**
 	 * 
