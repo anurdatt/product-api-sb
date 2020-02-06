@@ -14,10 +14,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="XXIBM_PRODUCT_CATALOGUE")
+@JsonIgnoreProperties
 public class ProductCatalog implements Serializable{
 	/**
 	 * 
