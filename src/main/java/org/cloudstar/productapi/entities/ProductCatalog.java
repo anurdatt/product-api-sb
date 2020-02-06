@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -49,9 +50,9 @@ public class ProductCatalog implements Serializable{
 	@Column(name="SEGMENT_NAME")
 	private String segmentName;
 	
-	@OneToMany(mappedBy="productCatalog", cascade = CascadeType.ALL)
-	@JsonManagedReference
-    private List<Product> products = new ArrayList();
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
+	@JoinColumn(name="CATALOGUE_CATEGORY")
+    private List<ProductShallow> products = new ArrayList();
     
 	public Integer getCommodityId() {
 		return commodityId;
@@ -117,11 +118,11 @@ public class ProductCatalog implements Serializable{
 		this.segmentName = segmentName;
 	}
 
-	public List<Product> getProducts() {
+	public List<ProductShallow> getProducts() {
 		return products;
 	}
 
-	public void setProducts(List<Product> products) {
+	public void setProducts(List<ProductShallow> products) {
 		this.products = products;
 	}
 
