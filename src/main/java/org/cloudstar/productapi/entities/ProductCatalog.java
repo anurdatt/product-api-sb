@@ -51,9 +51,9 @@ public class ProductCatalog implements Serializable{
 	@Column(name="SEGMENT_NAME")
 	private String segmentName;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
-	@JoinColumn(name="CATALOGUE_CATEGORY")
-    private List<ProductShallow> products = new ArrayList<>();
+//	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
+//	@JoinColumn(name="CATALOGUE_CATEGORY")
+//    private List<ProductShallow> products = new ArrayList<>();
     
 	public Integer getCommodityId() {
 		return commodityId;
@@ -119,13 +119,13 @@ public class ProductCatalog implements Serializable{
 		this.segmentName = segmentName;
 	}
 
-	public List<ProductShallow> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<ProductShallow> products) {
-		this.products = products;
-	}
+//	public List<ProductShallow> getProducts() {
+//		return products;
+//	}
+//
+//	public void setProducts(List<ProductShallow> products) {
+//		this.products = products;
+//	}
 
 	@Override
 	public int hashCode() {
@@ -137,7 +137,7 @@ public class ProductCatalog implements Serializable{
 		result = prime * result + ((commodityName == null) ? 0 : commodityName.hashCode());
 		result = prime * result + ((familyId == null) ? 0 : familyId.hashCode());
 		result = prime * result + ((familyName == null) ? 0 : familyName.hashCode());
-		result = prime * result + ((products == null) ? 0 : products.hashCode());
+		//result = prime * result + ((products == null) ? 0 : products.hashCode());
 		result = prime * result + ((segmentId == null) ? 0 : segmentId.hashCode());
 		result = prime * result + ((segmentName == null) ? 0 : segmentName.hashCode());
 		return result;
@@ -182,11 +182,11 @@ public class ProductCatalog implements Serializable{
 				return false;
 		} else if (!familyName.equals(other.familyName))
 			return false;
-		if (products == null) {
-			if (other.products != null)
-				return false;
-		} else if (!products.equals(other.products))
-			return false;
+//		if (products == null) {
+//			if (other.products != null)
+//				return false;
+//		} else if (!products.equals(other.products))
+//			return false;
 		if (segmentId == null) {
 			if (other.segmentId != null)
 				return false;
