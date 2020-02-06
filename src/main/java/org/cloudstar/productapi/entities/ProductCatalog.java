@@ -52,7 +52,7 @@ public class ProductCatalog implements Serializable{
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
 	@JoinColumn(name="CATALOGUE_CATEGORY")
-    private List<ProductShallow> products = new ArrayList();
+    private List<ProductShallow> products = new ArrayList<>();
     
 	public Integer getCommodityId() {
 		return commodityId;
