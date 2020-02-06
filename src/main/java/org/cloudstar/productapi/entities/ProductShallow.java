@@ -25,8 +25,8 @@ public class ProductShallow implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6321449269408432217L;
-
+	private static final long serialVersionUID = -7038900751980713106L;
+	
 	@Column(name="ITEM_NUMBER")
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
