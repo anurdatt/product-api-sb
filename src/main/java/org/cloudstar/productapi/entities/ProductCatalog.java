@@ -1,12 +1,16 @@
 package org.cloudstar.productapi.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -43,6 +47,9 @@ public class ProductCatalog implements Serializable{
 	@Column(name="SEGMENT_NAME")
 	private String segmentName;
 	
+	@OneToMany(mappedBy="productCatalog", cascade = CascadeType.ALL)
+    private List<Product> products = new ArrayList();
+    
 	public Integer getCommodityId() {
 		return commodityId;
 	}
@@ -107,6 +114,14 @@ public class ProductCatalog implements Serializable{
 		this.segmentName = segmentName;
 	}
 
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -117,6 +132,7 @@ public class ProductCatalog implements Serializable{
 		result = prime * result + ((commodityName == null) ? 0 : commodityName.hashCode());
 		result = prime * result + ((familyId == null) ? 0 : familyId.hashCode());
 		result = prime * result + ((familyName == null) ? 0 : familyName.hashCode());
+		result = prime * result + ((products == null) ? 0 : products.hashCode());
 		result = prime * result + ((segmentId == null) ? 0 : segmentId.hashCode());
 		result = prime * result + ((segmentName == null) ? 0 : segmentName.hashCode());
 		return result;
@@ -161,6 +177,11 @@ public class ProductCatalog implements Serializable{
 				return false;
 		} else if (!familyName.equals(other.familyName))
 			return false;
+		if (products == null) {
+			if (other.products != null)
+				return false;
+		} else if (!products.equals(other.products))
+			return false;
 		if (segmentId == null) {
 			if (other.segmentId != null)
 				return false;
@@ -173,7 +194,8 @@ public class ProductCatalog implements Serializable{
 			return false;
 		return true;
 	}
-	
+
+		
 	
 	
 }
