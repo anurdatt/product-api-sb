@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="XXIBM_PRODUCT_CATALOGUE")
 public class ProductCatalog implements Serializable{
@@ -48,6 +50,7 @@ public class ProductCatalog implements Serializable{
 	private String segmentName;
 	
 	@OneToMany(mappedBy="productCatalog", cascade = CascadeType.ALL)
+	@JsonManagedReference
     private List<Product> products = new ArrayList();
     
 	public Integer getCommodityId() {

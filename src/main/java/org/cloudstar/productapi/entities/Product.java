@@ -42,6 +42,7 @@ public class Product implements Serializable{
 //	private Integer productCatalogId;
 	@ManyToOne //(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="CATALOGUE_CATEGORY", referencedColumnName="COMMODITY")
+	@JsonBackReference
 	private ProductCatalog productCatalog;
 	
 	@Column(name="SKU_UNIT_OF_MEASURE")
