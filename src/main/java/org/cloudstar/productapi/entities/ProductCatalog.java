@@ -14,13 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonIgnoreType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="XXIBM_PRODUCT_CATALOGUE")
-@JsonIgnoreType
 public class ProductCatalog implements Serializable{
 	/**
 	 * 
@@ -55,6 +53,7 @@ public class ProductCatalog implements Serializable{
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
 	@JoinColumn(name="CATALOGUE_CATEGORY")
+	@JsonIgnore
     private List<ProductShallow> products = new ArrayList<>();
     
 	public Integer getCommodityId() {
